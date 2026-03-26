@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:02,500
+Heute sprechen wir über
+
+2
+00:00:02,600 --> 00:00:04,200
+die Geschichte Deutschlands
+
+3
+00:00:04,300 --> 00:00:06,000
+im zwanzigsten Jahrhundert.
+
+4
+00:00:06,500 --> 00:00:08,300
+Es war eine Zeit voller
+
+5
+00:00:08,400 --> 00:00:10,100
+großer Veränderungen
+
+6
+00:00:10,200 --> 00:00:12,000
+und wichtiger Ereignisse.
+
+7
+00:00:12,500 --> 00:00:14,500
+Berlin wurde zur Hauptstadt
+
+8
+00:00:14,600 --> 00:00:16,400
+des wiedervereinigten Deutschlands.
+
+9
+00:00:16,500 --> 00:00:18,500
+Die Menschen feierten
+
+10
+00:00:18,600 --> 00:00:20,200
+den Fall der Mauer.
+
