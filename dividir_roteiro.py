@@ -8,7 +8,7 @@ DESTINO_BASE = r"C:\Users\Administrador\Documents\F NOVO"
 
 def encontrar_arquivo():
     padrao = os.path.join(DOWNLOADS, "F.*.AL.txt")
-    arquivos = glob.glob(padrao)
+    arquivos = sorted(glob.glob(padrao))
     if not arquivos:
         print("Nenhum arquivo F.XXX.AL.txt encontrado na pasta Downloads.")
         sys.exit(1)
@@ -51,7 +51,10 @@ def remover_separadores_paragrafo(texto):
             continue
         resultado.append(linhas[i])
         i += 1
-    return "\n".join(resultado).strip()
+    texto = "\n".join(resultado).strip()
+    # Colapsa múltiplas linhas em branco consecutivas para uma única
+    texto = re.sub(r'\n{3,}', '\n\n', texto)
+    return texto
 
 def processar(caminho_arquivo):
     numero = extrair_numero(caminho_arquivo)

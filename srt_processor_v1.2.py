@@ -14,6 +14,7 @@ O roteiro (r#.txt) deve ter uma linha por parágrafo.
 Cada parágrafo é dividido em frases pela pontuação (.!?).
 """
 
+import sys
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from datetime import datetime
@@ -362,11 +363,7 @@ def encontrar_pares_de_arquivos(pasta):
 
 # ─── GUI ──────────────────────────────────────────────────────────────────────
 
-def processar_pasta():
-    pasta = filedialog.askdirectory(title="Selecione a pasta com os arquivos SRT e Roteiro")
-    if not pasta:
-        return
-
+def executar_na_pasta(pasta):
     pares = encontrar_pares_de_arquivos(pasta)
     if not pares:
         messagebox.showerror(
@@ -402,6 +399,13 @@ def processar_pasta():
         messagebox.showinfo("Concluído!", "\n\n".join(partes))
 
 
+def processar_pasta():
+    pasta = filedialog.askdirectory(title="Selecione a pasta com os arquivos SRT e Roteiro")
+    if not pasta:
+        return
+    executar_na_pasta(pasta)
+
+
 root = tk.Tk()
 root.title("SRT Processor — Sincronizador por Frase")
 root.geometry("520x190")
@@ -423,5 +427,10 @@ tk.Button(
     height=2, width=30,
     font=("Segoe UI", 10, "bold")
 ).pack(pady=10)
+
+# Se receber pasta como argumento, processa direto (usado pelo /srt workflow)
+if len(sys.argv) > 1:
+    pasta_arg = sys.argv[1]
+    root.after(100, lambda: executar_na_pasta(pasta_arg))
 
 root.mainloop()
