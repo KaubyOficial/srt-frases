@@ -1,6 +1,7 @@
 import glob
 import os
 import re
+import shutil
 import sys
 
 DOWNLOADS = os.path.join(os.path.expanduser("~"), "Downloads")
@@ -95,6 +96,10 @@ def processar(caminho_arquivo):
             f.write(parte_limpa)
 
         print(f"Criado: {caminho_saida}")
+
+    # Move o arquivo fonte para a pasta destino (não aparece mais nas próximas execuções)
+    destino_arquivo = os.path.join(pasta_destino, os.path.basename(caminho_arquivo))
+    shutil.move(caminho_arquivo, destino_arquivo)
 
     print(f"\nConcluido! {len(partes)} arquivo(s) salvos em: {pasta_destino}")
 

@@ -428,9 +428,12 @@ tk.Button(
     font=("Segoe UI", 10, "bold")
 ).pack(pady=10)
 
-# Se receber pasta como argumento, processa direto (usado pelo /srt workflow)
+# Se receber pasta como argumento, processa direto e fecha a janela ao terminar
 if len(sys.argv) > 1:
     pasta_arg = sys.argv[1]
-    root.after(100, lambda: executar_na_pasta(pasta_arg))
+    def processar_e_fechar():
+        executar_na_pasta(pasta_arg)
+        root.destroy()
+    root.after(100, processar_e_fechar)
 
 root.mainloop()
